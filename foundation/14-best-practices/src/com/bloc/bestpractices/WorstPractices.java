@@ -11,7 +11,7 @@ public class WorstPractices extends Object {
 	 *	Fix code and comments below this block
 	/************************************************/
 
-	public static void main(String [] args) 
+	public static void main(String[] args) 
 	{
 		int magicNumber = WorstPractices.animals(false);
 		magicNumber *= 5;
