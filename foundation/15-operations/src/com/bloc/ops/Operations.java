@@ -11,6 +11,7 @@ public class Operations extends Object {
 		/************************************************/
 
 		int x;	
+		x = 18;
 
 		/************************************************
 		 *  ASSIGNMENT:
@@ -18,28 +19,29 @@ public class Operations extends Object {
 		/************************************************/
 
 		int y;
-
+		y = ++x;
 		/************************************************
 		 *	ASSIGNMENT:
 		 *	Multiply x by y, assign it to z
 		/************************************************/
 
 		int z;
-
+		z = x*y;
 		/************************************************
 		 *	ASSIGNMENT:
 		 *	Mod z by 17 and assign the result to remainder
 		/************************************************/
 
 		int remainder;
-
+		remainder = z%17;
 		/************************************************
 		 *	ASSIGNMENT:
 		 *	Assign 5 to floaty and then divide it by 3
 		/************************************************/
 
 		float floaty;
-
+		floaty = 5;
+		floaty = floaty/3;
 		/************************************************
 		 *	ASSIGNMENT:
 		 *	Assign 5.3 into dubs
@@ -47,7 +49,8 @@ public class Operations extends Object {
 		/************************************************/
 
 		double dubs;
-
+		dubs = 5.3;
+		dubs = dubs*dubs;
 		/************************************************
 		 *	DO NOT MODIFY BELOW THIS CALLOUT
 		/************************************************/
