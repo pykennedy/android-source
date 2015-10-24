@@ -10,7 +10,7 @@ public class Loops extends Object {
 		boolean[] someBools = {true, false, true, true, false, true, false, false};
 		boolean temp = false;
 
-		//********** Starts Here ************************/
+		/********** Starts Here ************************
 		temp = someBools[7];
 		someBools[7] = someBools[0];
 		someBools[0] = temp;
@@ -26,9 +26,18 @@ public class Loops extends Object {
 		temp = someBools[4];
 		someBools[4] = someBools[3];
 		someBools[3] = temp;
-		//********** Ends Here **************************/
+		********** Ends Here **************************/
+		int i = 0;
+		int j = 0;
+		while(i<someBools.length/2)
+		{
+			j = (someBools.length-i)-1;
+			temp = someBools[j];
+			someBools[j] = someBools[i];
+			someBools[i] = temp;
+			i++;
+		}
 		
-
 		/************************************************
 	 	 *	ASSIGNMENT:
 	 	 *	Replace the operations above with a `while` loop
@@ -60,6 +69,15 @@ public class Loops extends Object {
 		numArray[7] = !someBools[7] ? 1 : 0;
 		//********** Ends Here **************************/
 
+		for(int k = 0; k<numArray.length; k++)
+		{
+			if(numArray.length!=someBools.length)
+			{
+				System.err.println("Arrays are not of equal length.");
+				break;
+			}
+			numArray[k] = !someBools[k] ? 1:0;
+		}
 
 		/************************************************
 	 	 *	ASSIGNMENT:
