@@ -35,9 +35,10 @@ public class Methods extends Object {
 		/************************************************
 		 * Your work goes here
 		 ************************************************/
-
-		// You are free to modify the return statement
-		return false;
+		if (!original)
+			return true;
+		else
+			return false;
 	}
 
 	/*
@@ -60,6 +61,10 @@ public class Methods extends Object {
 		/************************************************
 		 * Your work goes here
 		 ************************************************/
+		for(int i=0; i<numbers.length; i++)
+		{
+			numbers[i]=numbers[i]*-1;
+		}
 	}
 
 
@@ -90,9 +95,15 @@ public class Methods extends Object {
 		/************************************************
 		 * Your work goes here
 		 ************************************************/
-
-		// You are free to modify the return statement
-		return new boolean [0];
+		boolean[] boolArr = new boolean[someNumbers.length];
+		for(int i=0; i<someNumbers.length; i++)
+		{
+			if(someNumbers[i]>=floor)
+				boolArr[i]=true;
+			else
+				boolArr[i]=false;
+		}
+		return boolArr;
 	}
 
 	/*
@@ -117,9 +128,15 @@ public class Methods extends Object {
 		/************************************************
 		 * Your work goes here
 		 ************************************************/
-
-		// You are free to modify the return statement
-		return new int[2];
+		int[] nums = {someNumbers[0],someNumbers[0]};
+		for(int i=1; i<someNumbers.length; i++)
+		{
+			if(someNumbers[i]<nums[0])
+				nums[0]=someNumbers[i];
+			if(someNumbers[i]>nums[1])
+				nums[1]=someNumbers[i];
+		}
+		return nums;
 	}
 
 
