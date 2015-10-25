@@ -23,6 +23,18 @@ public class WorstPractices extends Object {
 			}
 		}
 	}
+	private static int animals(boolean yesWellHeresTheThing)
+	{
+
+		// Start off with one of these
+		int aInt = yesWellHeresTheThing ? 34 : 21;
+		float sparklesFairy = .5f;
+		for (int brown = 0; brown < aInt; brown++) 
+		{ 
+			sparklesFairy *= aInt;
+		} 
+		return (int) sparklesFairy * aInt;
+	}
 
 /* 
  animals
@@ -31,18 +43,7 @@ public class WorstPractices extends Object {
  yeswellheresthething: a seed which helps generate the magic number
  returns: a magical number
  */
-private static int animals(boolean yesWellHeresTheThing)
-{
 
-	// Start off with one of these
-	int aInt = yesWellHeresTheThing ? 34 : 21;
-	float sparklesFairy = .5f;
-	for (int brown = 0; brown < aInt; brown++) 
-	{ 
-		sparklesFairy *= aInt;
-	} 
-	return (int) sparklesFairy * aInt;
-}
 
 	/************************************************
 	 *	ASSIGNMENT
