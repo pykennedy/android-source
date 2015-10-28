@@ -8,6 +8,22 @@ public class Main extends Object {
 
 		ToyBox toyBox = new ToyBox();
 		
+		Spoon spoon = new Spoon();
+		Toy toySpoon = new Toy(spoon);
+		toyBox.addToy(toySpoon);
+		
+		Book book = new Book();
+		Toy toyBook = new Toy(book);
+		toyBox.addToy(toyBook);
+		
+		ActionFigure actionFigure = new ActionFigure();
+		Toy toyActionFigure = new Toy(actionFigure);
+		toyBox.addToy(toyActionFigure);
+		
+		Thing thing = new Thing("Ray Charles' sight");
+		Toy toyThing = new Toy(thing);
+		toyBox.addToy(toyThing);
+		
 		/************************************************
  		 *	ASSIGNMENT:
  		 *	Place several Toy objects into toyBox
