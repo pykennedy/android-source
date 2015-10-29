@@ -9,19 +9,19 @@ public class Main extends Object {
 		ToyBox toyBox = new ToyBox();
 		
 		Spoon spoon = new Spoon();
-		Toy toySpoon = new Toy(spoon);
+		Toy toySpoon = new Toy<Spoon>(spoon);
 		toyBox.addToy(toySpoon);
 		
 		Book book = new Book();
-		Toy toyBook = new Toy(book);
+		Toy toyBook = new Toy<Book>(book);
 		toyBox.addToy(toyBook);
 		
 		ActionFigure actionFigure = new ActionFigure();
-		Toy toyActionFigure = new Toy(actionFigure);
+		Toy toyActionFigure = new Toy<ActionFigure>(actionFigure);
 		toyBox.addToy(toyActionFigure);
 		
 		Thing thing = new Thing("Ray Charles' sight");
-		Toy toyThing = new Toy(thing);
+		Toy toyThing = new Toy<Thing>(thing);
 		toyBox.addToy(toyThing);
 		
 		/************************************************

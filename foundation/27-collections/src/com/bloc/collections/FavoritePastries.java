@@ -24,12 +24,16 @@ public class FavoritePastries {
 	 *	Use a HashMap to store the relationship
 	 *	between rating and pastry: HashMap<Integer, List<Pastry>>
 	/************************************************/
+	
+	public HashMap<Integer, List<Pastry>> pastryMap;
 
 
 	public FavoritePastries() {
 		/************************************************
  	 	 *	WORK HERE
 		/************************************************/
+		
+		pastryMap = new HashMap<Integer, List<Pastry>>();
 	}
 
 	/* 
@@ -51,6 +55,11 @@ public class FavoritePastries {
 		/************************************************
  	 	 *	WORK HERE
 		/************************************************/
+		if(pastryMap.putIfAbsent(rating, pastry) == pastry) {
+			pastryMap.remove()
+		}
+		pastryMap.put(rating, pastry);
+		
 	}
 
 	/* 
