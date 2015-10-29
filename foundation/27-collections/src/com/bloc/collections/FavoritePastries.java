@@ -25,11 +25,13 @@ public class FavoritePastries {
 	 *	between rating and pastry: HashMap<Integer, List<Pastry>>
 	/************************************************/
 
+	HashMap<Integer, List<Pastry>> pastryMap;
 
 	public FavoritePastries() {
 		/************************************************
  	 	 *	WORK HERE
 		/************************************************/
+		pastryMap = new HashMap<Integer, List<Pastry>>();
 	}
 
 	/* 
@@ -51,6 +53,19 @@ public class FavoritePastries {
 		/************************************************
  	 	 *	WORK HERE
 		/************************************************/
+		// duplicate already present
+		if(getRatingForPastry(pastry) >= 0) {
+			pastryMap.get(getRatingForPastry(pastry)).remove(pastry);
+			addPastry(pastry, rating);
+		}
+		// key hasn't been created yet
+		else if(!pastryMap.containsKey(rating)) {
+			pastryMap.put(rating, new ArrayList<Pastry>());
+			pastryMap.get(rating).add(pastry);
+		}
+		// key has been created and no dupes present
+		else
+			pastryMap.get(rating).add(pastry);
 	}
 
 	/* 
@@ -69,7 +84,11 @@ public class FavoritePastries {
 		/************************************************
  	 	 *	WORK HERE, you must modify the return value
 		/************************************************/
-		return false;
+		int i = getRatingForPastry(pastry);
+		if(i >= 0)
+			return pastryMap.get(i).remove(pastry);
+		else
+			return false;
 	}
 
 	/* 
@@ -90,6 +109,9 @@ public class FavoritePastries {
 		/************************************************
  	 	 *	WORK HERE, you must modify the return value
 		/************************************************/
+		for(Map.Entry<Integer, List<Pastry>> entry : pastryMap.entrySet())
+			if(entry.getValue().contains(pastry))
+				return entry.getKey();
 		return -1;
 	}
 
@@ -113,7 +135,15 @@ public class FavoritePastries {
 		/************************************************
  	 	 *	WORK HERE, you must modify the return value
 		/************************************************/
-		return null;
+		if(pastryMap.containsKey(rating)) {
+			Set<Pastry> pastrySet = pastryMap.get(rating).isEmpty() ?  
+				new HashSet<>() : new HashSet<>(pastryMap.get(rating));
+			return pastrySet;
+		}
+		else {
+			Set<Pastry> pastrySet = new HashSet<Pastry>();
+			return pastrySet;
+		}
 	}
 
 }
