@@ -21,12 +21,7 @@ class Song extends Object {
 	/************************************************/
 	Song()
 	{
-		Artist[] artists = new Artist[2];
-		artists[0] = new Artist("Justin", "Bieber");
-		artists[0] = new Artist("BStreet", "Band");
-		mEnsemble = new Ensemble(artists);
-		mTitle = "Nasheed Saleel Sawarim";
-		mYearReleased = 1776;
+		this(new Ensemble(new Artist[] {new Artist("Justin", "Bieber"), new Artist("BStreet", "Band")}), "Nasheed Saleel Sawarim");
 	}
 	/*
 	 * Song
@@ -42,8 +37,7 @@ class Song extends Object {
 	/************************************************/
 	Song(Ensemble ensemble, String title)
 	{
-		mEnsemble = ensemble;
-		mTitle = title;
+		this(ensemble, title, 1776);
 	}
 	/*
 	 * Song
@@ -58,8 +52,8 @@ class Song extends Object {
 	/************************************************/
 	Song(Ensemble ensemble, String title, int yearReleased)
 	{
-		mEnsemble = ensemble;
-		mTitle = title;
-		mYearReleased = yearReleased;
+		this.mEnsemble = ensemble;
+		this.mTitle = title;
+		this.mYearReleased = yearReleased;
 	}
 }

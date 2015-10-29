@@ -18,7 +18,7 @@ class Artist extends Object {
 	/************************************************/
 	Artist(String firstName, String lastName)
 	{
-		mFirstName = firstName;
-		mLastName = lastName;
+		this.mFirstName = firstName;
+		this.mLastName = lastName;
 	}
 }

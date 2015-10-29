@@ -43,13 +43,13 @@ class Ensemble extends Object {
 	{
 		if(name==null)
 		{
-			mArtists = artists;
-			mName = mArtists[0].mFirstName + mArtists[0].mLastName;
+			this.mArtists = artists;
+			this.mName = mArtists[0].mFirstName + mArtists[0].mLastName;
 		}
 		else
 		{
-			mName = name;
-			mArtists = artists;
+			this.mName = name;
+			this.mArtists = artists;
 		}
 	}
 }
