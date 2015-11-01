@@ -1,7 +1,15 @@
 package com.bloc.threads;
 
-public class ImageGetter extends Thread {
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 
+import javax.imageio.ImageIO;
+
+public class ImageGetter extends Thread {
+	String stringURL;
+	boolean openWhenCompleted;
 	/*
 	 * ImageGetter
 	 *
@@ -18,6 +26,10 @@ public class ImageGetter extends Thread {
  	 *	The variables passed into it must impact the `run()` method's
  	 *	behavior as described above.
 	/************************************************/
+	public ImageGetter(String url, boolean openWhenCompleted) {
+		stringURL = url;
+		this.openWhenCompleted = openWhenCompleted;
+	}
 
 	@Override
 	public void run() {
@@ -26,5 +38,28 @@ public class ImageGetter extends Thread {
  		 *	Perform the work found in `Main.java` in this
  		 *	Thread instead.
 		/************************************************/
+		try {
+			File existingImage = new File("google_logo.png");
+			if (existingImage.exists()) {
+				existingImage.delete();
+			}
+			URL url = new URL(stringURL);
+			BufferedImage bufferedImage = ImageIO.read(url);
+			File outputfile = new File("google_logo.png");
+			ImageIO.write(bufferedImage, "png", outputfile);
+			if(openWhenCompleted) {
+				if ("/".equals(System.getProperties().getProperty("file.separator"))) {
+					Runtime.getRuntime().exec("google_logo.png");
+				} else {
+					Runtime.getRuntime().exec("google_logo.png");
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.exit(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
 	}
 }
