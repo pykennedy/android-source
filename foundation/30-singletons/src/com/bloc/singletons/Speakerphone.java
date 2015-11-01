@@ -1,5 +1,8 @@
 package com.bloc.singletons;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /************************************************
  *	ASSIGNMENT:
  *	Populate this class with the defined methods.
@@ -9,6 +12,9 @@ package com.bloc.singletons;
 /************************************************/
 
 public class Speakerphone extends Object {
+	private static Speakerphone sSpPhone;
+	private ArrayList<Listener> listenerList = new ArrayList<Listener>();
+	private ArrayList<Talker> talkerList = new ArrayList<Talker>();
 	/*
 	 * get
 	 *
@@ -18,6 +24,11 @@ public class Speakerphone extends Object {
 	 *	ASSIGNMENT:
 	 *	Implement the get method
 	/************************************************/
+	public static Speakerphone get() {
+		if (sSpPhone == null)
+			sSpPhone = new Speakerphone();
+		return sSpPhone;
+	}
 
 	/*
 	 * addListener
@@ -31,6 +42,9 @@ public class Speakerphone extends Object {
 	 *	ASSIGNMENT:
 	 *	Implement the addListener method
 	/************************************************/
+	public void addListener(Listener listener) {
+		listenerList.add(listener);
+	}
 
 	/*
 	 * removeListener
@@ -44,6 +58,9 @@ public class Speakerphone extends Object {
 	 *	ASSIGNMENT:
 	 *	Implement the removeListener method
 	/************************************************/
+	public void removeListener(Listener listener) {
+		listenerList.remove(listener);
+	}
 
 	/*
 	 * removeAll
@@ -56,6 +73,9 @@ public class Speakerphone extends Object {
 	 *	ASSIGNMENT:
 	 *	Implement the removeAll method
 	/************************************************/
+	public void removeAll() {
+		listenerList.clear();
+	}
 
 	/*
 	 * contains
@@ -71,6 +91,9 @@ public class Speakerphone extends Object {
 	 *	ASSIGNMENT:
 	 *	Implement the contains method
 	/************************************************/	
+	public boolean contains(Listener listener) {
+		return listenerList.contains(listener);
+	}
 
 	/*
 	 * shoutMessage
@@ -84,6 +107,11 @@ public class Speakerphone extends Object {
 	 *	ASSIGNMENT:
 	 *	Implement the shoutMessage method
 	/************************************************/
+	public void shoutMessage(Talker talker) {
+		Iterator<Listener> listenerIterator = listenerList.iterator();
+		while(listenerIterator.hasNext())
+			listenerIterator.next().onMessageReceived(talker.getMessage());
+	}
 
 	/*
 	 * shoutMessage
@@ -103,5 +131,9 @@ public class Speakerphone extends Object {
 	 *	ASSIGNMENT:
 	 *	Implement the shoutMessage method
 	/************************************************/
-
+	public void shoutMessage(Talker talker, Class <?> cls) {
+ 		for(int i = 0; i < listenerList.size(); i++)
+ 			if(cls.isAssignableFrom(Listener.class))
+ 				listenerList.get(i).onMessageReceived(talker.getMessage());
+	}
 }
